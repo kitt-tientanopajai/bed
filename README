@@ -1,0 +1,11 @@
+A binary file editor v. 0.02
+Kitt Tientanopajai <kitty@kitty.in.th>
+Copyright (c) 2005 Kitt Tientanopajai
+
+bed accepts three arguments: filename, offset, and value. It writes 
+the value at the offset of the file. The offset and value should be
+specified in hexadecimal format, i.e., begins with 0x or 0X. bed 
+supports files larger than 2 GB.
+
+This is a free software. It can be distributed under the term of
+GNU General Public License. 
