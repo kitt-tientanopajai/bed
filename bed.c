@@ -1,7 +1,7 @@
 /* bed.c
- * A binary file editor v. 0.02
+ * A binary file editor v. 0.0.3
  * Kitt Tientanopajai <kitty@kitty.in.th>
- * Copyright (c) 2005 Kitt Tientanopajai
+ * Copyright (c) 2004-2009 Kitt Tientanopajai
  *
  * bed accepts three arguments: filename, offset, and value. It writes 
  * the value at the offset of the file. The offset and value should be
@@ -53,21 +53,21 @@ int main (int argc, char *argv[])
 			switch (argv[1][1]) {
 			case 'h':
 				help ();
-				exit (0);
+				exit (EXIT_SUCCESS);
 			case 'v':
 				versioninfo ();
-				exit (0);
+				exit (EXIT_SUCCESS);
 			case 'q':
 				quiet = 1;
 				break;
 			default:
 				help ();
-				exit (1);
+				exit (EXIT_FAILURE);
 			}
 		}
 	} else {
 		help ();
-		exit (1);
+		exit (EXIT_FAILURE);
 	}
 
 	i = argc - 1;
@@ -99,8 +99,8 @@ int main (int argc, char *argv[])
 			}
 		}
 		fclose (fp);
-		exit (0);
+		exit (EXIT_SUCCESS);
 	} else {
-		exit (1);
+		exit (EXIT_FAILURE);
 	}
 }
