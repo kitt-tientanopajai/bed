@@ -55,23 +55,23 @@ main (int argc, char *argv[])
   if (argv[1] != NULL)
     {
       if (argv[1][0] == '-')
-	{
-	  switch (argv[1][1])
-	    {
-	    case 'h':
-	      help ();
-	      exit (EXIT_SUCCESS);
-	    case 'v':
-	      versioninfo ();
-	      exit (EXIT_SUCCESS);
-	    case 'q':
-	      quiet = 1;
-	      break;
-	    default:
-	      help ();
-	      exit (EXIT_FAILURE);
-	    }
-	}
+  {
+    switch (argv[1][1])
+      {
+      case 'h':
+        help ();
+        exit (EXIT_SUCCESS);
+      case 'v':
+        versioninfo ();
+        exit (EXIT_SUCCESS);
+      case 'q':
+        quiet = 1;
+        break;
+      default:
+        help ();
+        exit (EXIT_FAILURE);
+      }
+  }
     }
   else
     {
@@ -84,40 +84,40 @@ main (int argc, char *argv[])
   if (fp != NULL)
     {
       for (i--; i > 1; i -= 2)
-	{
-	  if (argv[i] != NULL)
-	    {
-	      sscanf (argv[i], "%" PRIx8, &value);
-	    }
-	  else
-	    {
-	      fclose (fp);
-	      exit (1);
-	    }
+  {
+    if (argv[i] != NULL)
+      {
+        sscanf (argv[i], "%" PRIx8, &value);
+      }
+    else
+      {
+        fclose (fp);
+        exit (EXIT_FAILURE);
+      }
 
-	  if (argv[i - 1] != NULL)
-	    {
-	      sscanf (argv[i - 1], "%" PRIx64, &offset);
-	    }
-	  else
-	    {
-	      fclose (fp);
-	      exit (1);
-	    }
+    if (argv[i - 1] != NULL)
+      {
+        sscanf (argv[i - 1], "%" PRIx64, &offset);
+      }
+    else
+      {
+        fclose (fp);
+        exit (EXIT_FAILURE);
+      }
 
-	  if (fseeko64 (fp, offset, SEEK_SET))
-	    {
-	      fclose (fp);
-	      exit (1);
-	    }
+    if (fseeko64 (fp, offset, SEEK_SET))
+      {
+        fclose (fp);
+        exit (EXIT_FAILURE);
+      }
 
-	  fwrite (&value, 1, 1, fp);
-	  if (!quiet)
-	    {
-	      printf ("File: %s: changed the value at 0x%" PRIx64 " to 0x%"
-		      PRIx8 "\n", argv[argc - 1], offset, value);
-	    }
-	}
+    fwrite (&value, 1, 1, fp);
+    if (!quiet)
+      {
+        printf ("File: %s: changed the value at 0x%" PRIx64 " to 0x%"
+          PRIx8 "\n", argv[argc - 1], offset, value);
+      }
+  }
       fclose (fp);
       exit (EXIT_SUCCESS);
     }

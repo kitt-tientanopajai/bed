@@ -1,12 +1,13 @@
+Sat  6 Jul 16:22:21 +07 2019
+	- GNU coding style
+	- Use x.y.z for version
+
 Wed May 11 01:36:43 ICT 2005
 
-	New Release (v.0.02)
-	K & R Coding Style
-	Support multiple pairs of offset and value
-	Change arguments order
+	- New Release (v.0.02)
+	- K & R Coding Style
+	- Support multiple pairs of offset and value
+	- Change arguments order
 	
 Mon Mar  7 21:32:42 ICT 2005
-
-	Initial Release (v.0.01) 
-
-	- Kitt Tientanopajai
+	- Initial Release (v.0.01) 
