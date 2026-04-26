@@ -19,7 +19,7 @@
 #include <inttypes.h>
 #include <string.h>
 
-#define VERSION "0.02"
+#define VERSION "0.0.3"
 
 /* Print usage information */
 void
